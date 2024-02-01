@@ -10,10 +10,12 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mode, setMode] = useState(() => {
+    // if localStorage is dark or if localStorage is not defined and user's os prefers dark mode
     if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
+      typeof localStorage !== "undefined" &&
+      (localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches))
     ) {
       return "dark";
     } else {
@@ -22,6 +24,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   });
 
   const handleThemeChange = () => {
+    // add or remove dark theme for main root html
     if (mode === "dark") {
       document.documentElement.classList.add("dark");
     } else {

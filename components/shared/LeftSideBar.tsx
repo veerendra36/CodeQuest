@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import { SignedOut } from "@clerk/nextjs";
 
 const LeftSideBar = () => {
   const pathname = usePathname();
@@ -37,7 +38,9 @@ const LeftSideBar = () => {
             </Link>
           );
         })}
+      </div>
 
+      <SignedOut>
         <div className="flex flex-col gap-3">
           <Link href="/sign-in">
             <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none ">
@@ -63,11 +66,13 @@ const LeftSideBar = () => {
                 height={20}
                 className="invert-colors lg:hidden"
               />
-              <span className="max-lg:hidden">Sign Up</span>
+              <span className="text-dark300_light700 max-lg:hidden">
+                Sign Up
+              </span>
             </Button>
           </Link>
         </div>
-      </div>
+      </SignedOut>
     </section>
   );
 };

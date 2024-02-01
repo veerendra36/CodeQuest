@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import RenderTag from "./RenderTag";
 
 const RightSideBar = () => {
   const hotQuestion = [
@@ -10,10 +11,17 @@ const RightSideBar = () => {
       title:
         "Best practices for data fetching in a Next.js application with Server-Side Rendering (SSR)?",
     },
-    { _id: 1, title: "Is it only me or the font is bolder than necessary?" },
-    { _id: 1, title: "Can I get the course for free?" },
-    { _id: 1, title: "Redux Toolkit Not Updating State as Expected" },
-    { _id: 1, title: "Async/Await Function Not Handling Errors Properly" },
+    { _id: "1", title: "Is it only me or the font is bolder than necessary?" },
+    { _id: "2", title: "Can I get the course for free?" },
+    { _id: "3", title: "Redux Toolkit Not Updating State as Expected" },
+    { _id: "4", title: "Async/Await Function Not Handling Errors Properly" },
+  ];
+  const populatTags = [
+    { _id: "1", title: "NextJs", noOfQuestions: 30 },
+    { _id: "2", title: "ReactJs", noOfQuestions: 26 },
+    { _id: "3", title: "DataStructures", noOfQuestions: 100 },
+    { _id: "4", title: "CSS", noOfQuestions: 59 },
+    { _id: "5", title: "TEST", noOfQuestions: 15 },
   ];
   return (
     <section className="background-light900_dark200 light-border custom-scrollbar sticky right-0 top-0 flex h-screen w-[350px] flex-col  overflow-y-auto border-l p-6 pt-36 shadow-light-300 dark:shadow-none max-xl:hidden">
@@ -43,6 +51,17 @@ const RightSideBar = () => {
       </div>
       <div className="mt-16">
         <h3 className="h3-bold text-dark500_light700">Popular Tags</h3>
+        <div className="mt-7 flex flex-col gap-4">
+          {populatTags.map((tag) => (
+            <RenderTag
+              key={tag._id}
+              _id={tag._id}
+              name={tag.title}
+              totalQuestions={tag.noOfQuestions}
+              showCount
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

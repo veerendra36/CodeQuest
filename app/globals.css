@@ -44,6 +44,9 @@ body {
   .primary-gradient {
     background: linear-gradient(129deg, #4267b2 0%, #9a99cc 100%);
   }
+  .active-gradient {
+    background: linear-gradient(129deg, #e2bbf2 0%, #704475 100%);
+  }
 
   .dark-gradient {
     background: linear-gradient(
