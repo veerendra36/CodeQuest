@@ -2,7 +2,7 @@ import LocalSearchBar from "@/components/shared/search/LocalSearchBar";
 import { HomePageFilters } from "@/constants/filters";
 import Filter from "@/components/shared/Filter";
 import Link from "next/link";
-import HomeFilters from "@/components/home/HomeFIlters";
+import HomeFilters from "@/components/home/HomeFilters";
 import NoResults from "@/components/shared/NoResults";
 import QuestionCard from "@/components/cards/QuestionCard";
 
